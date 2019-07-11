@@ -1,0 +1,20 @@
+{
+    "appName": "hackathon",
+    "roleName": "pinpointLambdaRole8ff3544a",
+    "cloudWatchPolicyName": "cloudWatchPolicy8ff3544a",
+    "pinpointPolicyName": "pinpointPolicy8ff3544a",
+    "authPolicyName": "pinpoint_amplify_8ff3544a",
+    "unauthPolicyName": "pinpoint_amplify_8ff3544a",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

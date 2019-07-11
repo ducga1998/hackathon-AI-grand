@@ -1,0 +1,19 @@
+{
+    "ducc": {
+        "awscloudformation": {
+            "AuthRoleName": "hackathon-ducc-20190711122841-authRole",
+            "UnauthRoleArn": "arn:aws:iam::580754017723:role/hackathon-ducc-20190711122841-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::580754017723:role/hackathon-ducc-20190711122841-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "hackathon-ducc-20190711122841-deployment",
+            "UnauthRoleName": "hackathon-ducc-20190711122841-unauthRole",
+            "StackName": "hackathon-ducc-20190711122841",
+            "StackId": "arn:aws:cloudformation:us-east-1:580754017723:stack/hackathon-ducc-20190711122841/bf2772d0-a39c-11e9-bb14-12f81177eb92"
+        },
+        "categories": {
+            "auth": {
+                "hackathonbc266a4f": {}
+            }
+        }
+    }
+}

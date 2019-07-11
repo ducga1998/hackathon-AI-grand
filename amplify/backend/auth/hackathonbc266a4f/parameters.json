@@ -1,0 +1,68 @@
+{
+    "identityPoolName": "hackathonbc266a4f_identitypool_bc266a4f",
+    "allowUnauthenticatedIdentities": true,
+    "lambdaLogPolicy": "hackat_bc266a4f_lambda_log_policy",
+    "openIdLambdaRoleName": "hackat_bc266a4f_openid_lambda_role",
+    "openIdRolePolicy": "hackat_bc266a4f_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "hackat_bc266a4f_openid_lambda_iam_policy",
+    "openIdLogPolicy": "hackat_bc266a4f_openid_lambda_log_policy",
+    "userPoolName": "hackathonbc266a4f_userpool_bc266a4f",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "hackatbc266a4f_sns-role",
+    "roleExternalId": "hackatbc266a4f_role_external_id",
+    "policyName": "hackatbc266a4f-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientName": "hackatbc266a4f_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "hackatbc266a4f_totp_lambda_role",
+    "mfaLambdaLogPolicy": "hackatbc266a4f_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "hackatbc266a4f_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "hackatbc266a4f_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "hackatbc266a4f_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "hackatbc266a4f_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "hackatbc266a4f_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "resourceName": "hackathonbc266a4f",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "useDefault": "default"
+}

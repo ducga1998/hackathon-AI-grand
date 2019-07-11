@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "hackathon",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authhackathonbc266a4f",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

@@ -11,9 +11,20 @@ export default class Messages extends React.Component {
     socket = null
     componentDidMount() {
         this.socket = socket('http://52.77.249.75:5005', {}, '/socket.io/')
-        this.socket.on('bot_uttered', (botUttered) => {
-            console.log('botUttered', botUttered)
-            this.setState({ messages: [...[{ ...botUttered, ...{ _id: uuid() } }], ...this.state.messages] })
+        this.socket.on('bot_uttered', (message) => {
+            const result = {
+                ...message, ...{
+                    _id: uuid(),
+                    createdAt: new Date(),
+                    user: {
+                        _id: 2,
+                        name: 'React Native',
+                        avatar: 'https://placeimg.com/140/140/any',
+                    }
+                }
+            }
+            console.log('botUttered', result)
+            this.setState({ messages: [...[result], ...this.state.messages] })
         });
 
 
@@ -37,7 +48,17 @@ export default class Messages extends React.Component {
     }
 
     onSend(messages = []) {
-        this.socket.emit('user_uttered', { message: '/get_started', customData: {}, session_id: '5f8f5266c55a448593ff31cbae14f341' });
+        console.log('message', messages[0])
+        const { text } = messages[0]
+        this.socket.emit('user_uttered', {
+            message: text, customData: {
+                user: {
+                    _id: 2,
+                    name: 'React Native',
+                    avatar: 'https://placeimg.com/140/140/any',
+                }
+            }, session_id: '5f8f5266c55a448593ff31cbae14f341'
+        });
         this.setState(previousState => ({
             messages: GiftedChat.append(previousState.messages, messages),
         }))

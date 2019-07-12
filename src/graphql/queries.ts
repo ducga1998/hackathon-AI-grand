@@ -56,10 +56,10 @@ export const getPost = `query GetPost($id: ID!) {
 export const listPosts = `query ListPosts(
   $filter: ModelPostFilterInput
   $limit: Int
-  $nextToken: String
+  $nextToken: String\]
+  
 ) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
+  listPosts(filter: $
       id
       title
       blog {

@@ -6,6 +6,7 @@ import Amplify, { API, graphqlOperation, Storage } from 'aws-amplify';
 import * as queries from './src/graphql/queries';
 import awsconfig from './aws-exports';
 import { withAuthenticator, S3Album } from 'aws-amplify-react-native';
+import Messages from './message'
 Amplify.configure(awsconfig);
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
@@ -28,6 +29,7 @@ class App extends Component {
     const allTodos = await API.graphql(graphqlOperation(queries.listComments));
     this.setState({ apiResponse: allTodos });
   }
+
   uploadFile = (evt) => {
     const file = evt.target.files[0];
     const name = file.name;
@@ -48,7 +50,7 @@ class App extends Component {
             <Text>Events sent: {this.state.eventsSent + 1}</Text>
             <Text style={styles.link} onPress={() => Linking.openURL(url)}>
               View Events on the Amazon Pinpoint Console
-                </Text>
+            </Text>
           </View>
         );
         this.setState({
@@ -83,24 +85,10 @@ class App extends Component {
     this.setState({ noteId: event });
   }
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Welcome to your React Native App with Amplify!</Text>
-        <Button title="Generate Analytics Event" onPress={this.handleAnalyticsClick} />
-        {this.state.resultHtml}
-        <View>
-          <Button title="Send Request" onPress={this.getSample.bind(this)} />
-          <Text>Response: {this.state.apiResponse && JSON.stringify(this.state.apiResponse)}</Text>
-        </View>
-
-        {/* <input type="file" onChange={this.uploadFile} /> */}
-        <S3Album level="private" path='' />
-
-      </View>
-    );
+    return <Messages />
   }
 }
-export default withAuthenticator(App)
+export default App
 const styles = StyleSheet.create({
   container: {
     flex: 1,
